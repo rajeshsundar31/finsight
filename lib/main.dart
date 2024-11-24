@@ -1,5 +1,6 @@
 import 'package:finsight/presentation/dashboard/dashboard_view_model.dart';
 import 'package:finsight/presentation/landing_page.dart';
+import 'package:finsight/presentation/login/login_view_model.dart';
 import 'package:finsight/presentation/register/register_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create:  (context) => RegisterViewModel(),),
         ChangeNotifierProvider(create:  (context) => DashboardViewModel(),),
+        ChangeNotifierProvider(create: (context) => LoginViewModel()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

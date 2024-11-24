@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:finsight/presentation/dashboard/dashboard_view.dart';
+import 'package:finsight/presentation/login/login_view.dart';
 import 'package:finsight/service/api_service.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class RegisterViewModel extends ChangeNotifier implements RegisterView {
     if (result['success'] == true) {
       Navigator.pushReplacement(
         context, 
-        MaterialPageRoute(builder: (context) => const Dashboard())
+        MaterialPageRoute(builder: (context) => const LoginView())
       );
   }
 }}

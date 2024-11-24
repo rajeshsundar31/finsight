@@ -4,6 +4,7 @@ import 'package:finsight/core/constants/app_colors.dart';
 import 'package:finsight/core/constants/app_strings.dart';
 import 'package:finsight/core/utils/app_size.dart';
 import 'package:finsight/core/utils/asset_utils.dart';
+import 'package:finsight/presentation/login/login_view.dart';
 import 'package:finsight/presentation/register/register_view_model.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -155,7 +156,7 @@ class _RegisterUserState extends State<RegisterUser> {
       return Column(
         children: [
           CustomButton(
-            color: AppColor.purple,
+            color: AppColor.btn_green,
             text: AppStrings.continueBtn,
             onPressed: () {
               if (_formKey.currentState!.validate()) {
@@ -184,6 +185,7 @@ class _RegisterUserState extends State<RegisterUser> {
             TextSpan(text: "LogIn",style: const TextStyle(color: AppColor.green), 
             recognizer: TapGestureRecognizer()
             ..onTap = () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginView()));
             }
             )
           ]

@@ -8,7 +8,7 @@ class CommonApiServices {
 
 
 // instead of local host we should declare machine Ip(10.0.2.2) - to run emulatore
-  final baseUrl = 'http://10.0.2.2:8000/api/v1'; 
+  final baseUrl = 'http://localhost:8000/api/v1'; 
 
   Future<dynamic> fetchData(String apiUrl) async {
     var url = Uri.parse(baseUrl + apiUrl);

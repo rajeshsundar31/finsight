@@ -9,4 +9,5 @@ class AppColor {
   static const grey = Color(0xFF76797B);
   static const lightwhite = Color(0xffE8E8E8);
   static const gold = Color(0xFFF6B94A);
+  static const btn_green = Color(0xff006a7e);
 }
