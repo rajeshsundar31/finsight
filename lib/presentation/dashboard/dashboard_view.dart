@@ -35,6 +35,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Scaffold(
+        appBar: _buildApp(context),
         floatingActionButton: FloatingActionButton(
           backgroundColor: AppColor.purple,
           shape: const CircleBorder(),
@@ -46,22 +47,6 @@ class _DashboardState extends State<Dashboard> {
           child: const Icon(Icons.add, color: AppColor.white,),),
         body: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  const CustomText(
-                    text: "Hi Rajesh",
-                    color: AppColor.black,
-                    ),
-                    CircleAvatar(
-                      radius: 24,
-                      backgroundImage: AssetImage(AssetsUtils.myProfile),
-                    )
-                ],
-              ),
-            ),
              SizedBox(
               width: displayWidth(context)/1,
               height: displayHeight(context)/2,
@@ -144,5 +129,21 @@ class _DashboardState extends State<Dashboard> {
           ],
         ),
       ));
+  }
+
+  PreferredSizeWidget _buildApp(context){
+    return AppBar(
+          leading: Text("Hi"),
+          actions: [
+            IconButton(onPressed: (){
+
+            }, icon: const Icon(Icons.qr_code)),
+            CircleAvatar(
+                      radius: 16,
+                      backgroundImage: AssetImage(AssetsUtils.myProfile),
+                    ),
+            
+          ],
+        );
   }
 }
