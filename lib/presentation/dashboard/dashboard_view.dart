@@ -133,7 +133,7 @@ class _DashboardState extends State<Dashboard> {
 
   PreferredSizeWidget _buildApp(context){
     return AppBar(
-          leading: Text("Hi"),
+          leading: const Text("Hi"),
           actions: [
             IconButton(onPressed: (){
 

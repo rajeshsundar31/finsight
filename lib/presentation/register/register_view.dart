@@ -42,9 +42,7 @@ class _RegisterUserState extends State<RegisterUser> {
   Widget _buildBody(BuildContext context) {
     return Form(
       key: _formKey,
-      child: SingleChildScrollView(
-        child: _buildContainer(context),
-      ),
+      child: _buildContainer(context),
     );
   }
 
@@ -65,18 +63,20 @@ class _RegisterUserState extends State<RegisterUser> {
                 ),
               ),
             ),
-            SizedBox(
-                height: displayHeight(context) * 0.35,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    _buildName(context),
-                    _buildEmail(context),
-                    _buildPassword(context),
-                    _buildButton(context),
-                    _buildBottomContent(context)
-                  ],
-                ))
+            Flexible(
+              child: SizedBox(
+                  height: displayHeight(context) * 0.55,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _buildName(context),
+                      _buildEmail(context),
+                      _buildPassword(context),
+                      _buildButton(context),
+                      _buildBottomContent(context)
+                    ],
+                  )),
+            )
           ],
         ),
       ],
@@ -87,9 +87,10 @@ class _RegisterUserState extends State<RegisterUser> {
     return SizedBox(
       width: displayWidth(context) / 1.2,
       child: TextFormField(
+        key: const Key('name'),
         validator: (value) {
           if (value == null || value.length < 4) {
-            return 'Please Enter valid Mail Addess';
+            return 'Please Enter valid Name';
           } else {
             return null;
           }
@@ -110,6 +111,7 @@ class _RegisterUserState extends State<RegisterUser> {
     return SizedBox(
       width: displayWidth(context) / 1.2,
       child: TextFormField(
+        key: const Key('email'),
         controller: emailContoller,
         validator: (value) {
           if (value == null || value.length < 4) {
@@ -131,6 +133,7 @@ class _RegisterUserState extends State<RegisterUser> {
     return SizedBox(
       width: displayWidth(context) / 1.2,
       child: TextFormField(
+        key: const Key('password'),
         controller: passwordController,
         keyboardType: TextInputType.visiblePassword,
         obscureText: true,
@@ -141,8 +144,6 @@ class _RegisterUserState extends State<RegisterUser> {
         validator: (value) {
           if (value == null) {
             return 'Password cannot be Empty';
-          } else if (value.length < 4 && value.length > 12) {
-            return 'Password must be more than 4 letter and less than 12';
           } else {
             return null;
           }
