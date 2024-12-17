@@ -142,8 +142,10 @@ class _RegisterUserState extends State<RegisterUser> {
             hintText: "Enter Strong Password",
             labelText: "Password"),
         validator: (value) {
-          if (value == null) {
+          if (value == null || value.length < 4 ) {
             return 'Password cannot be Empty';
+          } else if (value.length < 4 || value.length > 12){
+            return 'Password cannot be less than 4 and more than 12';
           } else {
             return null;
           }
