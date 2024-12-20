@@ -8,6 +8,7 @@ import 'package:finsight/presentation/login/login_view.dart';
 import 'package:finsight/presentation/register/register_view_model.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class RegisterUser extends StatefulWidget {
@@ -22,6 +23,7 @@ class _RegisterUserState extends State<RegisterUser> {
   String? name = "";
   TextEditingController emailContoller = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController dateController = TextEditingController();
 
   @override
   void initState() {
@@ -49,150 +51,157 @@ class _RegisterUserState extends State<RegisterUser> {
   Widget _buildContainer(BuildContext context) {
     return Stack(
       children: [
+        Image.asset(AssetsUtils.backfin),
         Padding(
-          padding: const EdgeInsets.only(top: 16.0),
-          child: Image.asset(AssetsUtils.payment),
-        ),
-        Column(
+        padding: const EdgeInsets.only(top: 310),
+        child: Column(
           children: [
-            SizedBox(
-              height: displayHeight(context) * 0.40,
-              child: const Center(
-                child: CustomText(
-                  text: "Register User",
-                ),
-              ),
-            ),
-            Flexible(
-              child: SizedBox(
-                  height: displayHeight(context) * 0.55,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      _buildName(context),
-                      _buildEmail(context),
-                      _buildPassword(context),
-                      _buildButton(context),
-                      _buildBottomContent(context)
-                    ],
-                  )),
-            )
+            _buildName(context),
+            _buildEmail(context),
+            _buildPassword(context),
+            _buildButton(context),
+            _buildBottomContent(context)
           ],
         ),
+      ),
+      _buildHeading(context)
       ],
+       
     );
   }
 
-    Widget _buildName(BuildContext context) {
-    return SizedBox(
-      width: displayWidth(context) / 1.2,
-      child: TextFormField(
-        key: const Key('name'),
-        validator: (value) {
-          if (value == null || value.length < 4) {
-            return 'Please Enter valid Name';
-          } else {
-            return null;
-          }
-        },
-        onChanged: (value) {
-          name = value;
-        },
-        keyboardType: TextInputType.name,
-        decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: "Enter Your Valid Name",
-            labelText: "Name"),
+  Padding _buildHeading(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.only(left: 90.0, top: 16.0),
+      child: CustomText(
+        text: AppStrings.registerDetails,
       ),
     );
   }
 
-  Widget _buildEmail(BuildContext context) {
-    return SizedBox(
-      width: displayWidth(context) / 1.2,
-      child: TextFormField(
-        key: const Key('email'),
-        controller: emailContoller,
-        validator: (value) {
-          if (value == null || value.length < 4) {
-            return 'Please Enter valid Mail Addess';
-          } else {
-            return null;
-          }
-        },
-        keyboardType: TextInputType.emailAddress,
-        decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: "Enter Your Valid Mail",
-            labelText: "Email"),
+  Flexible _buildName(BuildContext context) {
+    return Flexible(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextFormField(
+          key: const Key('name'),
+          validator: (value) {
+            if (value == null || value.length < 4) {
+              return 'Please Enter valid Name';
+            } else {
+              return null;
+            }
+          },
+          onChanged: (value) {
+            name = value;
+          },
+          keyboardType: TextInputType.name,
+          decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "Enter Your Valid Name",
+              labelText: "Name"),
+        ),
       ),
     );
   }
 
-  Widget _buildPassword(BuildContext context) {
-    return SizedBox(
-      width: displayWidth(context) / 1.2,
-      child: TextFormField(
-        key: const Key('password'),
-        controller: passwordController,
-        keyboardType: TextInputType.visiblePassword,
-        obscureText: true,
-        decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: "Enter Strong Password",
-            labelText: "Password"),
-        validator: (value) {
-          if (value == null || value.length < 4 ) {
-            return 'Password cannot be Empty';
-          } else if (value.length < 4 || value.length > 12){
-            return 'Password cannot be less than 4 and more than 12';
-          } else {
-            return null;
-          }
-        },
+  Flexible _buildEmail(BuildContext context) {
+    return Flexible(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextFormField(
+          key: const Key('email'),
+          controller: emailContoller,
+          validator: (value) {
+            if (value == null || value.length < 4) {
+              return 'Please Enter valid Mail Addess';
+            } else {
+              return null;
+            }
+          },
+          keyboardType: TextInputType.emailAddress,
+          decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "Enter Your Valid Mail",
+              labelText: "Email"),
+        ),
+      ),
+    );
+  }
+
+  Flexible _buildPassword(BuildContext context) {
+    return Flexible(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: TextFormField(
+          key: const Key('password'),
+          controller: passwordController,
+          keyboardType: TextInputType.visiblePassword,
+          obscureText: true,
+          decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: "Enter Strong Password",
+              labelText: "Password"),
+          validator: (value) {
+            if (value == null || value.length < 4) {
+              return 'Password cannot be Empty';
+            } else if (value.length < 4 || value.length > 12) {
+              return 'Password cannot be less than 4 and more than 12';
+            } else {
+              return null;
+            }
+          },
+        ),
       ),
     );
   }
 
   Widget _buildButton(BuildContext context) {
     return Consumer<RegisterViewModel>(builder: (context, btnRegister, child) {
-      return Column(
-        children: [
-          CustomButton(
-            color: AppColor.btn_green,
-            text: AppStrings.continueBtn,
-            onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                btnRegister.saveUserDetails(
-                    email: emailContoller.text,
-                    password: passwordController.text,
-                    userName: name.toString(),
-                    context: context);
-              }
-            },
-            width: displayWidth(context) / 1.3,
-          )
-        ],
+      return Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: CustomButton(
+          color: AppColor.btn_green,
+          text: AppStrings.continueBtn,
+          onPressed: () {
+            if (_formKey.currentState!.validate()) {
+              btnRegister.saveUserDetails(
+                  email: emailContoller.text,
+                  password: passwordController.text,
+                  userName: name.toString(),
+                  context: context);
+            }
+          },
+          width: displayWidth(context) / 1.1,
+        ),
       );
     });
   }
 
-  Widget _buildBottomContent(BuildContext context){
+  Widget _buildBottomContent(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        RichText(text: TextSpan(
-          children: [
-            const TextSpan(text: "Already Have a account?",style: TextStyle(color: AppColor.black)),
-            const WidgetSpan(child: SizedBox(width: 8.0,)),
-            TextSpan(text: "LogIn",style: const TextStyle(color: AppColor.green), 
-            recognizer: TapGestureRecognizer()
-            ..onTap = () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginView()));
-            }
-            )
-          ]
-        )),
+        RichText(
+            text: TextSpan(children: [
+          const TextSpan(
+              text: "Already Have a account?",
+              style: TextStyle(color: AppColor.black)),
+          const WidgetSpan(
+              child: SizedBox(
+            width: 8.0,
+          )),
+          TextSpan(
+              text: "LogIn",
+              style: const TextStyle(color: AppColor.green),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginView()));
+                })
+        ])),
       ],
     );
   }
