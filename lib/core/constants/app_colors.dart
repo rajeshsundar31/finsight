@@ -9,5 +9,7 @@ class AppColor {
   static const grey = Color(0xFF76797B);
   static const lightwhite = Color(0xffE8E8E8);
   static const gold = Color(0xFFF6B94A);
-  static const btn_green = Color(0xff006a7e);
+  static const primary = Color(0xff006a7e);
+  static const lightblue = Color(0xFFd9e8fb);
+  static const cardcolor = Color(0xFF2b3b52);
 }

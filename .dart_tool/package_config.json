@@ -128,10 +128,22 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "flutter_barcode_scanner",
+      "rootUri": "file:///Users/rajeshsundar/.pub-cache/hosted/pub.dev/flutter_barcode_scanner-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///Users/rajeshsundar/.pub-cache/hosted/pub.dev/flutter_lints-4.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.1"
+    },
+    {
+      "name": "flutter_plugin_android_lifecycle",
+      "rootUri": "file:///Users/rajeshsundar/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.24",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
     },
     {
       "name": "flutter_test",
@@ -222,6 +234,12 @@
       "rootUri": "file:///Users/rajeshsundar/.pub-cache/hosted/pub.dev/mockito-5.4.4",
       "packageUri": "lib/",
       "languageVersion": "3.1"
+    },
+    {
+      "name": "mocktail",
+      "rootUri": "file:///Users/rajeshsundar/.pub-cache/hosted/pub.dev/mocktail-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "nested",
@@ -350,7 +368,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-12-16T16:50:02.065986Z",
+  "generated": "2024-12-21T07:56:44.125857Z",
   "generator": "pub",
   "generatorVersion": "3.5.1",
   "flutterRoot": "file:///Users/rajeshsundar/Documents/flutter",

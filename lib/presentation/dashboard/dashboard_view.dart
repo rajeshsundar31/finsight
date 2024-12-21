@@ -18,6 +18,8 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
 
+  final today = DateTime.now();
+
   @override
   void initState() {
     Future.microtask((){
@@ -35,7 +37,6 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Scaffold(
-        appBar: _buildApp(context),
         floatingActionButton: FloatingActionButton(
           backgroundColor: AppColor.purple,
           shape: const CircleBorder(),
@@ -49,8 +50,8 @@ class _DashboardState extends State<Dashboard> {
           children: [
              SizedBox(
               width: displayWidth(context)/1,
-              height: displayHeight(context)/2,
-               child: const CustomCarousel(),
+              height: displayHeight(context)/4,
+               child: _buildCard(context),
              ),
              Expanded(
                child: Consumer<DashboardViewModel>(
@@ -131,19 +132,36 @@ class _DashboardState extends State<Dashboard> {
       ));
   }
 
-  PreferredSizeWidget _buildApp(context){
-    return AppBar(
-          leading: const Text("Hi"),
-          actions: [
-            IconButton(onPressed: (){
-
-            }, icon: const Icon(Icons.qr_code)),
-            CircleAvatar(
-                      radius: 16,
-                      backgroundImage: AssetImage(AssetsUtils.myProfile),
-                    ),
-            
-          ],
-        );
+  Widget _buildCard(BuildContext context) {
+    return const Card(
+      color: AppColor.cardcolor,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+           Align(
+            alignment: Alignment.topLeft,
+             child: Text(
+               "\$30,000",
+               style: TextStyle(
+                 color: AppColor.white,
+                 fontSize: 24,
+                 fontWeight: FontWeight.w900
+               ),
+               ),
+           ),
+           Align(
+            alignment: Alignment.topLeft,
+             child: Text(
+               "****-***-****-***-3001",
+               style: TextStyle(
+                 color: AppColor.white,
+                 fontSize: 24,
+                 fontWeight: FontWeight.w600
+               ),
+               ),
+           ),
+        ],
+      ),
+    );
   }
 }

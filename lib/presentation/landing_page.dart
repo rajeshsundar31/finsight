@@ -4,7 +4,7 @@ import 'package:finsight/core/constants/app_strings.dart';
 import 'package:finsight/core/utils/app_size.dart';
 import 'package:finsight/core/utils/asset_utils.dart';
 import 'package:finsight/presentation/dashboard/dashboard.dart';
-import 'package:finsight/presentation/register/register_view.dart';
+// import 'package:finsight/presentation/register/register_view.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
@@ -32,7 +32,7 @@ class _LandingPageState extends State<LandingPage> {
           ),
           Image.asset(AssetsUtils.savemoney),
           CustomButton(
-            color: AppColor.btn_green,
+            color: AppColor.primary,
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => const DashboardScreen()));
             },

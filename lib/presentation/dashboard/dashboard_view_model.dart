@@ -54,6 +54,7 @@ class DashboardViewModel extends ChangeNotifier {
       selectedIndex = Index;
       scanQR();
     } else {
+      debugPrint("index${Index}");
       selectedIndex = Index;
 
     }
@@ -74,7 +75,7 @@ class DashboardViewModel extends ChangeNotifier {
       TitleName = upiUri.queryParameters['pn'] ?? "Parameter not found";
       scanres = barcodeRes;
 
-      notifyListeners();
+      // notifyListeners();
   }
 
  

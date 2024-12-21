@@ -8,7 +8,6 @@ import 'package:finsight/presentation/login/login_view.dart';
 import 'package:finsight/presentation/register/register_view_model.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class RegisterUser extends StatefulWidget {
@@ -161,7 +160,7 @@ class _RegisterUserState extends State<RegisterUser> {
       return Padding(
         padding: const EdgeInsets.only(top: 8.0),
         child: CustomButton(
-          color: AppColor.btn_green,
+          color: AppColor.primary,
           text: AppStrings.continueBtn,
           onPressed: () {
             if (_formKey.currentState!.validate()) {

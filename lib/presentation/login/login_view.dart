@@ -88,7 +88,7 @@ class _LoginViewState extends State<LoginView> {
       return Column(
         children: [
           CustomButton(
-            color: AppColor.btn_green,
+            color: AppColor.primary,
             text: AppStrings.continueBtn,
             onPressed: () {
               if (_formKey.currentState!.validate()) {
