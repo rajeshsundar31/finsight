@@ -8,5 +8,6 @@ class AssetsUtils {
   static String payColor = "$rootPath/color.png";
   static String backfin = "$rootPath/finance_app.png";
   static String savemoney = "$rootPath/saving_money.png";
+  static String chip = "$rootPath/chip.png";
 
 }

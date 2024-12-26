@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:finsight/model/transaction_model.dart';
+// import 'package:finsight/presentation/amount/amount.dart';
 import 'package:finsight/service/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -75,7 +76,9 @@ class DashboardViewModel extends ChangeNotifier {
       TitleName = upiUri.queryParameters['pn'] ?? "Parameter not found";
       scanres = barcodeRes;
 
-      // notifyListeners();
+      // Navigator.push(context, MaterialPageRoute(builder:(context) => AmountPay(title: TitleName.toString(), upiId: Upiid.toString()),));
+
+      notifyListeners();
   }
 
  

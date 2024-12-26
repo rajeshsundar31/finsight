@@ -133,33 +133,56 @@ class _DashboardState extends State<Dashboard> {
   }
 
   Widget _buildCard(BuildContext context) {
-    return const Card(
+    return Card(
       color: AppColor.cardcolor,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-           Align(
-            alignment: Alignment.topLeft,
-             child: Text(
-               "\$30,000",
-               style: TextStyle(
-                 color: AppColor.white,
-                 fontSize: 24,
-                 fontWeight: FontWeight.w900
+          const Padding(
+            padding: EdgeInsets.only(left: 24.0),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "\$30,000",
+                style: TextStyle(
+                  color: AppColor.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w900
+                ),
+                ),
+            ),
+          ),
+           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+             children: [
+              const Text(
+                "****-***-****-***-3001",
+                style: TextStyle(
+                  color: AppColor.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600
+                ),
+                ),
+               SizedBox(
+                width: 50,
+                 child: Image.asset(AssetsUtils.chip),
                ),
-               ),
+             ],
            ),
-           Align(
-            alignment: Alignment.topLeft,
-             child: Text(
-               "****-***-****-***-3001",
-               style: TextStyle(
-                 color: AppColor.white,
-                 fontSize: 24,
-                 fontWeight: FontWeight.w600
+             const Padding(
+               padding: EdgeInsets.only(right: 24.0),
+               child: Align(
+                alignment: Alignment.bottomRight,
+                 child: Text(
+                  "Rajeshwaran",
+                  style: TextStyle(
+                    color: AppColor.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600
+                  ),
+                  ),
                ),
-               ),
-           ),
+             ),
         ],
       ),
     );

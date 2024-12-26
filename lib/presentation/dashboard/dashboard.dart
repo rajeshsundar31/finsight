@@ -1,5 +1,6 @@
 import 'package:finsight/core/constants/app_colors.dart';
 import 'package:finsight/core/constants/app_strings.dart';
+import 'package:finsight/presentation/contact/contact.dart';
 import 'package:finsight/presentation/dashboard/dashboard_view.dart';
 import 'package:finsight/presentation/dashboard/dashboard_view_model.dart';
 import 'package:finsight/presentation/landing_page.dart';
@@ -39,7 +40,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       // notifyListeners();
   }
 
-   List<Widget> _pages = <Widget>[const Dashboard(), const LandingPage(), ProfileScreen()];
+   List<Widget> _pages = <Widget>[const Dashboard(), const LandingPage(), ContactList()];
   
   @override
   Widget build(BuildContext context) {

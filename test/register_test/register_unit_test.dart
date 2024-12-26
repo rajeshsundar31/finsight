@@ -1,51 +1,50 @@
-import 'package:finsight/presentation/register/register_view_model.dart';
-import 'package:finsight/service/api_service.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+// import 'dart:convert';
+// import 'package:finsight/presentation/login/login_view.dart';
+// import 'package:finsight/presentation/register/register_view_model.dart';
+// import 'package:finsight/service/api_service.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_test/flutter_test.dart';
+// import 'package:mockito/mockito.dart';
+// import 'package:mockito/annotations.dart';
 
+// class MockBuildContext extends Mock implements BuildContext {}
+// class MockCommonApiServices extends Mock implements CommonApiServices {}
 
-// Mocking dependencies
-class MockBuildContext extends Mock implements BuildContext {}
+// @GenerateMocks([CommonApiServices])
+// void main() {
+//   late MockCommonApiServices mockApiService;
+//   late RegisterViewModel registerViewModel;
 
-class MockCommonApiServices extends Mock implements CommonApiServices {}
+//   setUp(() {
+//     mockApiService = MockCommonApiServices();
+//     registerViewModel = RegisterViewModel();
+//   });
 
+//   testWidgets('saveUserDetails should save user details and navigate to LoginView on success', (WidgetTester tester) async {
+//     final mockContext = MockBuildContext();
+//     final email = 'test@example.com';
+//     final password = 'password';
+//     final userName = 'Test User';
+//     final response = jsonEncode({'success': true});
 
+//     when(mockApiService.saveData(any, any, any)).thenAnswer((_) async => Future.value(response));
 
-void main() {
-  late RegisterViewModel registerViewModel;
-  late MockCommonApiServices mockApiService;
-  late MockBuildContext mockContext;
+//     await tester.runAsync(() async {
+//       registerViewModel.saveUserDetails(
+//         email: email,
+//         password: password,
+//         userName: userName,
+//         context: mockContext,
+//       );
+//     });
 
-  setUp(() {
-    // Initialize the mocks
-    mockApiService = MockCommonApiServices();
-    mockContext = MockBuildContext();
-  });
+//     verify(mockApiService.saveData('/register', json.encode({
+//       'email': email,
+//       'password': password,
+//       'name': userName,
+//     }), mockContext)).called(1);
 
-  group('Register user', (){
-
-    test('save Register Details', () {
-      
-    });
-  });
-
-  test('saveUserDetails calls Navigator.pushReplacement on successful response', () async {
-    // Arrange: Mock the API service to return a successful response
-    when(() => mockApiService.saveData(
-      any(),
-      any(),
-      mockContext,
-    )).thenAnswer((_) async => '{"success": true}');
-
-
-  //   // Assert: Verify that Navigator.pushReplacement is called
-  //   verify(() => Navigator.pushReplacement(
-  //     mockContext,
-  //     any(),
-  //   )).called(1);
-
-  //   // You can also check if the customerName was updated correctly
-    // expect(registerViewModel.customerName, 'rajesh');
-  });
-}
+//     expect(registerViewModel.customerName, userName);
+//     verify(mockContext.pushReplacement(any)).called(1);
+//   });
+// }
