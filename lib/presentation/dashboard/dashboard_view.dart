@@ -48,6 +48,7 @@ class _DashboardState extends State<Dashboard> {
           child: const Icon(Icons.add, color: AppColor.white,),),
         body: Column(
           children: [
+            _buildGreetings(context),
              SizedBox(
               width: displayWidth(context)/1,
               height: displayHeight(context)/4,
@@ -143,7 +144,7 @@ class _DashboardState extends State<Dashboard> {
             child: Align(
               alignment: Alignment.topLeft,
               child: Text(
-                "\$30,000",
+                "\$ 70,000",
                 style: TextStyle(
                   color: AppColor.white,
                   fontSize: 24,
@@ -174,7 +175,7 @@ class _DashboardState extends State<Dashboard> {
                child: Align(
                 alignment: Alignment.bottomRight,
                  child: Text(
-                  "Rajeshwaran",
+                  "Rajesh",
                   style: TextStyle(
                     color: AppColor.white,
                     fontSize: 24,
@@ -184,6 +185,27 @@ class _DashboardState extends State<Dashboard> {
                ),
              ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildGreetings (BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 24.0, top: 16.0),
+      child: Align(
+        alignment: Alignment.topLeft,
+        child: Text(
+          DateTime.now().hour < 12 && DateTime.now().hour > 3? "Good Morning"
+          : DateTime.now().hour < 16 && DateTime.now().hour > 12? "Good Afternoon"
+          : DateTime.now().hour < 19 && DateTime.now().hour > 16? "Good Evening"
+          : DateTime.now().hour < 3 && DateTime.now().hour > 16? "Good Night": "Hello",
+          style: const TextStyle(
+            color: AppColor.primary,
+            fontSize: 24,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.w600
+          ),
+          ),
       ),
     );
   }

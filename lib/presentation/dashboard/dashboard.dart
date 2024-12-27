@@ -1,9 +1,9 @@
 import 'package:finsight/core/constants/app_colors.dart';
 import 'package:finsight/core/constants/app_strings.dart';
-import 'package:finsight/presentation/contact/contact.dart';
 import 'package:finsight/presentation/dashboard/dashboard_view.dart';
 import 'package:finsight/presentation/dashboard/dashboard_view_model.dart';
 import 'package:finsight/presentation/landing_page.dart';
+import 'package:finsight/presentation/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -38,7 +38,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       // notifyListeners();
   }
 
-   final List<Widget> _pages = <Widget>[const Dashboard(), const LandingPage(), const ContactList()];
+   final List<Widget> _pages = <Widget>[const Dashboard(), const LandingPage(), const ProfileScreen()];
   
   @override
   Widget build(BuildContext context) {

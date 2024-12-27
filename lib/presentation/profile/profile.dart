@@ -42,6 +42,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Widget _buildcard(BuildContext context){
     return Card(
+      elevation: 5,
       child: Column(
         children: [
           Row(
@@ -75,7 +76,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               IconButton(onPressed: (){}, icon: const Icon(Icons.logout))
             ],
           ),
-          const Divider(),
         ],
       ),
     );
