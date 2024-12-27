@@ -1,8 +1,9 @@
 import 'dart:async';
-import 'dart:typed_data';
 
+// ignore: depend_on_referenced_packages
 import 'package:collection/collection.dart';
 import 'package:flutter/services.dart';
+// ignore: depend_on_referenced_packages
 import 'package:quiver/core.dart';
 
 
@@ -146,19 +147,19 @@ class ContactsService {
     if (result is int) {
       switch (result) {
         case 1:
-          throw FormOperationException(
+          throw const FormOperationException(
               errorCode: FormOperationErrorCode.FORM_OPERATION_CANCELED);
         case 2:
-          throw FormOperationException(
+          throw const FormOperationException(
               errorCode: FormOperationErrorCode.FORM_COULD_NOT_BE_OPEN);
         default:
-          throw FormOperationException(
+          throw const FormOperationException(
               errorCode: FormOperationErrorCode.FORM_OPERATION_UNKNOWN_ERROR);
       }
     } else if (result is Map) {
       return Contact.fromMap(result);
     } else {
-      throw FormOperationException(
+      throw const FormOperationException(
           errorCode: FormOperationErrorCode.FORM_OPERATION_UNKNOWN_ERROR);
     }
   }
@@ -168,12 +169,16 @@ class FormOperationException implements Exception {
   final FormOperationErrorCode? errorCode;
 
   const FormOperationException({this.errorCode});
+  @override
   String toString() => 'FormOperationException: $errorCode';
 }
 
 enum FormOperationErrorCode {
+  // ignore: constant_identifier_names
   FORM_OPERATION_CANCELED,
+  // ignore: constant_identifier_names
   FORM_COULD_NOT_BE_OPEN,
+  // ignore: constant_identifier_names
   FORM_OPERATION_UNKNOWN_ERROR
 }
 
@@ -215,8 +220,8 @@ class Contact {
   DateTime? birthday;
 
   String initials() {
-    return ((this.givenName?.isNotEmpty == true ? this.givenName![0] : "") +
-            (this.familyName?.isNotEmpty == true ? this.familyName![0] : ""))
+    return ((givenName?.isNotEmpty == true ? givenName![0] : "") +
+            (familyName?.isNotEmpty == true ? familyName![0] : ""))
         .toUpperCase();
   }
 
@@ -290,78 +295,78 @@ class Contact {
 
   /// The [+] operator fills in this contact's empty fields with the fields from [other]
   operator +(Contact other) => Contact(
-        givenName: this.givenName ?? other.givenName,
-        middleName: this.middleName ?? other.middleName,
-        prefix: this.prefix ?? other.prefix,
-        suffix: this.suffix ?? other.suffix,
-        familyName: this.familyName ?? other.familyName,
-        company: this.company ?? other.company,
-        jobTitle: this.jobTitle ?? other.jobTitle,
-        androidAccountType: this.androidAccountType ?? other.androidAccountType,
-        androidAccountName: this.androidAccountName ?? other.androidAccountName,
-        emails: this.emails == null
+        givenName: givenName ?? other.givenName,
+        middleName: middleName ?? other.middleName,
+        prefix: prefix ?? other.prefix,
+        suffix: suffix ?? other.suffix,
+        familyName: familyName ?? other.familyName,
+        company: company ?? other.company,
+        jobTitle: jobTitle ?? other.jobTitle,
+        androidAccountType: androidAccountType ?? other.androidAccountType,
+        androidAccountName: androidAccountName ?? other.androidAccountName,
+        emails:emails == null
             ? other.emails
-            : this
-                .emails!
+            :emails!
                 .toSet()
+                // ignore: prefer_collection_literals
                 .union(other.emails?.toSet() ?? Set())
                 .toList(),
-        phones: this.phones == null
+        phones: phones == null
             ? other.phones
-            : this
-                .phones!
+            : phones!
                 .toSet()
+                // ignore: prefer_collection_literals
                 .union(other.phones?.toSet() ?? Set())
                 .toList(),
-        postalAddresses: this.postalAddresses == null
+        postalAddresses: postalAddresses == null
             ? other.postalAddresses
-            : this
-                .postalAddresses!
+            : postalAddresses!
                 .toSet()
+                // ignore: prefer_collection_literals
                 .union(other.postalAddresses?.toSet() ?? Set())
                 .toList(),
-        avatar: this.avatar ?? other.avatar,
-        birthday: this.birthday ?? other.birthday,
+        avatar: avatar ?? other.avatar,
+        birthday: birthday ?? other.birthday,
       );
 
   /// Returns true if all items in this contact are identical.
   @override
   bool operator ==(Object other) {
     return other is Contact &&
-        this.avatar == other.avatar &&
-        this.company == other.company &&
-        this.displayName == other.displayName &&
-        this.givenName == other.givenName &&
-        this.familyName == other.familyName &&
-        this.identifier == other.identifier &&
-        this.jobTitle == other.jobTitle &&
-        this.androidAccountType == other.androidAccountType &&
-        this.androidAccountName == other.androidAccountName &&
-        this.middleName == other.middleName &&
-        this.prefix == other.prefix &&
-        this.suffix == other.suffix &&
-        this.birthday == other.birthday &&
-        DeepCollectionEquality.unordered().equals(this.phones, other.phones) &&
-        DeepCollectionEquality.unordered().equals(this.emails, other.emails) &&
-        DeepCollectionEquality.unordered()
-            .equals(this.postalAddresses, other.postalAddresses);
+        avatar == other.avatar &&
+        company == other.company &&
+        displayName == other.displayName &&
+        givenName == other.givenName &&
+        familyName == other.familyName &&
+        identifier == other.identifier &&
+        jobTitle == other.jobTitle &&
+        androidAccountType == other.androidAccountType &&
+        androidAccountName == other.androidAccountName &&
+        middleName == other.middleName &&
+        prefix == other.prefix &&
+        suffix == other.suffix &&
+        birthday == other.birthday &&
+        const DeepCollectionEquality.unordered().equals(phones, other.phones) &&
+        const DeepCollectionEquality.unordered().equals(emails, other.emails) &&
+        const DeepCollectionEquality.unordered()
+            .equals(postalAddresses, other.postalAddresses);
   }
 
   @override
   int get hashCode {
     return hashObjects([
-      this.company,
-      this.displayName,
-      this.familyName,
-      this.givenName,
-      this.identifier,
-      this.jobTitle,
-      this.androidAccountType,
-      this.androidAccountName,
-      this.middleName,
-      this.prefix,
-      this.suffix,
-      this.birthday,
+      company,
+      displayName,
+      familyName,
+      givenName,
+      identifier,
+      jobTitle,
+      androidAccountType,
+      androidAccountName,
+      middleName,
+      prefix,
+      suffix,
+      birthday,
     ].where((s) => s != null));
   }
 
@@ -405,23 +410,23 @@ class PostalAddress {
   @override
   bool operator ==(Object other) {
     return other is PostalAddress &&
-        this.city == other.city &&
-        this.country == other.country &&
-        this.label == other.label &&
-        this.postcode == other.postcode &&
-        this.region == other.region &&
-        this.street == other.street;
+        city == other.city &&
+        country == other.country &&
+        label == other.label &&
+        postcode == other.postcode &&
+        region == other.region &&
+        street == other.street;
   }
 
   @override
   int get hashCode {
     return hashObjects([
-      this.label,
-      this.street,
-      this.city,
-      this.country,
-      this.region,
-      this.postcode,
+      label,
+      street,
+      city,
+      country,
+      region,
+      postcode,
     ].where((s) => s != null));
   }
 
@@ -437,35 +442,35 @@ class PostalAddress {
   @override
   String toString() {
     String finalString = "";
-    if (this.street != null) {
-      finalString += this.street!;
+    if (street != null) {
+      finalString += street!;
     }
-    if (this.city != null) {
+    if (city != null) {
       if (finalString.isNotEmpty) {
-        finalString += ", " + this.city!;
+        finalString += ", ${city!}";
       } else {
-        finalString += this.city!;
+        finalString += city!;
       }
     }
-    if (this.region != null) {
+    if (region != null) {
       if (finalString.isNotEmpty) {
-        finalString += ", " + this.region!;
+        finalString += ", ${region!}";
       } else {
-        finalString += this.region!;
+        finalString += region!;
       }
     }
-    if (this.postcode != null) {
+    if (postcode != null) {
       if (finalString.isNotEmpty) {
-        finalString += " " + this.postcode!;
+        finalString += " ${postcode!}";
       } else {
-        finalString += this.postcode!;
+        finalString += postcode!;
       }
     }
-    if (this.country != null) {
+    if (country != null) {
       if (finalString.isNotEmpty) {
-        finalString += ", " + this.country!;
+        finalString += ", ${country!}";
       } else {
-        finalString += this.country!;
+        finalString += country!;
       }
     }
     return finalString;
@@ -487,8 +492,8 @@ class Item {
   @override
   bool operator ==(Object other) {
     return other is Item &&
-        this.label == other.label &&
-        this.value == other.value;
+        label == other.label &&
+        value == other.value;
   }
 
   @override
