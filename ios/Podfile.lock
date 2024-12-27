@@ -1,19 +1,25 @@
 PODS:
+  - contacts_service (0.2.2):
+    - Flutter
   - Flutter (1.0.0)
   - flutter_barcode_scanner (2.0.0):
     - Flutter
 
 DEPENDENCIES:
+  - contacts_service (from `.symlinks/plugins/contacts_service/ios`)
   - Flutter (from `Flutter`)
   - flutter_barcode_scanner (from `.symlinks/plugins/flutter_barcode_scanner/ios`)
 
 EXTERNAL SOURCES:
+  contacts_service:
+    :path: ".symlinks/plugins/contacts_service/ios"
   Flutter:
     :path: Flutter
   flutter_barcode_scanner:
     :path: ".symlinks/plugins/flutter_barcode_scanner/ios"
 
 SPEC CHECKSUMS:
+  contacts_service: 849e1f84281804c8bfbec1b4c3eedcb23c5d3eca
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_barcode_scanner: 7a1144744c28dc0c57a8de7218ffe5ec59a9e4bf
 
