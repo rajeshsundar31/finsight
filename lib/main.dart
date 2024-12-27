@@ -1,8 +1,7 @@
-import 'package:finsight/presentation/dashboard/dashboard_view_model.dart';
-import 'package:finsight/presentation/landing_page.dart';
-import 'package:finsight/presentation/login/login_view_model.dart';
-import 'package:finsight/presentation/register/register_view_model.dart';
+import 'package:finsight/core/provider/common_provider.dart';
+import 'package:finsight/core/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -17,19 +16,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create:  (context) => RegisterViewModel(),),
-        ChangeNotifierProvider(create:  (context) => DashboardViewModel(),),
-        ChangeNotifierProvider(create: (context) => LoginViewModel()),
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
+      providers: providerList,
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const LandingPage(),
+       onGenerateRoute: CommonRoutes().generateRoutes,
+       initialRoute: '/',
       ),
     );
   }

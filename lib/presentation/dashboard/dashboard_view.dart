@@ -21,9 +21,9 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   void initState() {
-    Future.microtask((){
-      // ignore: use_build_context_synchronously
-      Provider.of<DashboardViewModel>(context, listen: false).init();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+      final dashboardModel = Provider.of<DashboardViewModel>(context, listen: false);
+      dashboardModel.init();
     });
     super.initState();
   }
