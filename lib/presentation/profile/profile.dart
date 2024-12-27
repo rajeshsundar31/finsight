@@ -47,7 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         children: [
           Row(
             children: [
-              const Text("Language"),
+              const Text("  Language"),
               const Spacer(),
               IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_right))
             ],
@@ -55,7 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const Divider(),
           Row(
             children: [
-              const Text("Dark Mode"),
+              const Text("  Dark Mode"),
               const Spacer(),
               IconButton(onPressed: (){}, icon: const Icon(Icons.dark_mode))
             ],
@@ -63,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const Divider(),
           Row(
             children: [
-              const Text("Terms and Conditions"),
+              const Text("  Terms and Conditions"),
               const Spacer(),
               IconButton(onPressed: (){}, icon: const Icon(Icons.checklist_rtl_outlined))
             ],
@@ -71,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           const Divider(),
           Row(
             children: [
-              const Text("Log Out"),
+              const Text("   Log Out"),
               const Spacer(),
               IconButton(onPressed: (){}, icon: const Icon(Icons.logout))
             ],

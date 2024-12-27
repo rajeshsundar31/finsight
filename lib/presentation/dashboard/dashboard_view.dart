@@ -161,7 +161,7 @@ class _DashboardState extends State<Dashboard> {
                 style: TextStyle(
                   color: AppColor.white,
                   fontSize: 24,
-                  fontWeight: FontWeight.w600
+                  fontWeight: FontWeight.w200
                 ),
                 ),
                SizedBox(
@@ -195,10 +195,10 @@ class _DashboardState extends State<Dashboard> {
       child: Align(
         alignment: Alignment.topLeft,
         child: Text(
-          DateTime.now().hour < 12 && DateTime.now().hour > 3? "Good Morning"
-          : DateTime.now().hour < 16 && DateTime.now().hour > 12? "Good Afternoon"
-          : DateTime.now().hour < 19 && DateTime.now().hour > 16? "Good Evening"
-          : DateTime.now().hour < 3 && DateTime.now().hour > 16? "Good Night": "Hello",
+          DateTime.now().hour >= 4 && DateTime.now().hour < 12? "Good Morning" 
+          : DateTime.now().hour >= 12 && DateTime.now().hour < 16? "Good Afternoon" 
+          : DateTime.now().hour >= 16 && DateTime.now().hour < 19? "Good Evening" 
+          : DateTime.now().hour >= 19 || DateTime.now().hour < 4? "Good Night": "",
           style: const TextStyle(
             color: AppColor.primary,
             fontSize: 24,
