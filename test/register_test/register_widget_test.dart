@@ -11,6 +11,7 @@ class MockRegisterViewModel extends Mock implements RegisterViewModel {}
 void main() {
   group('Register widget to register User', () {
     late RegisterViewModel registerViewModel;
+    // ignore: unused_local_variable
     late MockRegisterViewModel mockmodel;
 
     setUp(() {

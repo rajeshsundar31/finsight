@@ -39,7 +39,7 @@ class _AmountPayState extends State<AmountPay> {
               Padding(
                 padding: const EdgeInsets.only(top: 40),
                 child: Center(
-                  child: Container(
+                  child: SizedBox(
                     height: displayHeight(context) / 2,
                     width: displayWidth(context),
                     // color: AppColor.primary,
@@ -59,36 +59,34 @@ class _AmountPayState extends State<AmountPay> {
                           const SizedBox(
                             height: 10,
                           ),
-                          Container(
-                            child: TextFormField(
-                              controller: amountcontroller,
-                              keyboardType: TextInputType.number,
-                              inputFormatters: <TextInputFormatter>[
-                                FilteringTextInputFormatter.digitsOnly
-                              ],
-                              textAlign: TextAlign.center,
-                              decoration: const InputDecoration(
-                                hintText: "₹ 0",
-                                focusedBorder: InputBorder.none,
-                                enabledBorder: InputBorder.none,
-                                disabledBorder: InputBorder.none,
-                                errorBorder: InputBorder.none
-                              ),
-                              validator: (value) {
-                                if (value == '' || value == null) {
-                                  return "Please Enter valid Amount";
-                                } else if (int.parse(value) < 0 || int.parse(value) == 0){
-                                  return "Please enter valid amount";
-
-                                }
-                                return null;
-                              },
+                          TextFormField(
+                            controller: amountcontroller,
+                            keyboardType: TextInputType.number,
+                            inputFormatters: <TextInputFormatter>[
+                              FilteringTextInputFormatter.digitsOnly
+                            ],
+                            textAlign: TextAlign.center,
+                            decoration: const InputDecoration(
+                              hintText: "₹ 0",
+                              focusedBorder: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              errorBorder: InputBorder.none
                             ),
+                            validator: (value) {
+                              if (value == '' || value == null) {
+                                return "Please Enter valid Amount";
+                              } else if (int.parse(value) < 0 || int.parse(value) == 0){
+                                return "Please enter valid amount";
+                          
+                              }
+                              return null;
+                            },
                           ),
                           const SizedBox(
                             height: 10,
                           ),
-                          Container(
+                          SizedBox(
                             width: displayWidth(context) / 4,
                             height: 40,
                             child: TextFormField(
@@ -123,13 +121,12 @@ class _AmountPayState extends State<AmountPay> {
                       amount = amountcontroller.text;
                       remarks = messagecontroller.text;
                       agentid = upId;
-                      print("aga${agentid}");
                     });
                         // Navigator.push(context, MaterialPageRoute(builder: (context) => ReviewTransaction(name: name.toString(), amount: amount.toString(), remarks: remarks.toString(), agntid: agentid.toString())));
-                       print(amountcontroller.text);
                     }
-                  }, child: Text("Continue", style: TextStyle(color: AppColor.white),),
-                  style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(AppColor.primary))),
+                  },
+                  style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll(AppColor.primary)), child: const Text("Continue", style: TextStyle(color: AppColor.white),
+                  )),
               )
             ],
           ),

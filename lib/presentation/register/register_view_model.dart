@@ -21,6 +21,7 @@ class RegisterViewModel extends ChangeNotifier implements RegisterView {
     result = jsonDecode(result);
     if (result['success'] == true) {
       Navigator.pushReplacement(
+        // ignore: use_build_context_synchronously
         context, 
         MaterialPageRoute(builder: (context) => const LoginView())
       );

@@ -27,9 +27,9 @@ class _RegisterUserState extends State<RegisterUser> {
   @override
   void initState() {
     Future.microtask(() {
+      // ignore: use_build_context_synchronously
       Provider.of<RegisterViewModel>(context, listen: false);
     });
-    // TODO: implement initState
     super.initState();
   }
 

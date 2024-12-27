@@ -19,15 +19,14 @@ class _ContactListState extends State<ContactList> {
   @override
   void initState() {
     getAllContact();
-    // TODO: implement initState
     super.initState();
   }
 
   getAllContact() async{
     // Get all contacts without thumbnail (faster)
-    List<Contact> _contacts = await ContactsService.getContacts(withThumbnails: false);
+    List<Contact> contacts = await ContactsService.getContacts(withThumbnails: false);
     setState(() {
-      contact = _contacts;
+      contact = contacts;
     });
   }
 

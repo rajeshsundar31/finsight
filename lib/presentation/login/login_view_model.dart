@@ -23,6 +23,7 @@ class LoginViewModel extends ChangeNotifier implements LoginDetail{
     var decodeData = json.decode(verifiyUser);
 
     if(decodeData != null){
+      // ignore: use_build_context_synchronously
       Navigator.push(context, MaterialPageRoute(builder: (context) => const Dashboard()));
     }
 

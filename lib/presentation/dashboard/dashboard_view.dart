@@ -1,4 +1,3 @@
-import 'package:finsight/component/carosel.dart';
 import 'package:finsight/component/custom_dialog.dart';
 import 'package:finsight/component/custom_text.dart';
 import 'package:finsight/core/constants/app_colors.dart';
@@ -23,6 +22,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   void initState() {
     Future.microtask((){
+      // ignore: use_build_context_synchronously
       Provider.of<DashboardViewModel>(context, listen: false).init();
     });
     super.initState();

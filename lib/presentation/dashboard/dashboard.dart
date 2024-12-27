@@ -4,7 +4,6 @@ import 'package:finsight/presentation/contact/contact.dart';
 import 'package:finsight/presentation/dashboard/dashboard_view.dart';
 import 'package:finsight/presentation/dashboard/dashboard_view_model.dart';
 import 'package:finsight/presentation/landing_page.dart';
-import 'package:finsight/presentation/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -21,7 +20,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   String? barcodeRes;
   String? scanres;
-  late String? TitleName = '', Upiid = '';
+  late String? titleName = '', upiId = '';
 
    Future scanQR() async {
     try {
@@ -31,16 +30,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
       barcodeRes = "Failed to Scan QR Code";
     }
 
-      print("scanres${barcodeRes}");
       Uri upiUri = Uri.parse(barcodeRes!);
-      Upiid = upiUri.queryParameters['pa'] ?? "Parameter not found";
-      TitleName = upiUri.queryParameters['pn'] ?? "Parameter not found";
+      upiId = upiUri.queryParameters['pa'] ?? "Parameter not found";
+      titleName = upiUri.queryParameters['pn'] ?? "Parameter not found";
       scanres = barcodeRes;
 
       // notifyListeners();
   }
 
-   List<Widget> _pages = <Widget>[const Dashboard(), const LandingPage(), ContactList()];
+   final List<Widget> _pages = <Widget>[const Dashboard(), const LandingPage(), const ContactList()];
   
   @override
   Widget build(BuildContext context) {

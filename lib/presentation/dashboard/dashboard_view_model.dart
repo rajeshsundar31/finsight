@@ -10,7 +10,7 @@ class DashboardViewModel extends ChangeNotifier {
   List<Transactions> detailsList = [];
   String? barcodeRes;
   String? scanres;
-  late String? TitleName = '', Upiid = '';
+  late String? titleName = '', upiId = '';
   int selectedIndex = 0;
 
   init(){
@@ -48,15 +48,14 @@ class DashboardViewModel extends ChangeNotifier {
 
   }
 
-  void onTapIndex(int Index){
-    if (Index == 0){
-      selectedIndex = Index;
-    } else if (Index == 1) {
-      selectedIndex = Index;
+  void onTapIndex(int index){
+    if (index == 0){
+      selectedIndex = index;
+    } else if (index == 1) {
+      selectedIndex = index;
       scanQR();
     } else {
-      debugPrint("index${Index}");
-      selectedIndex = Index;
+      selectedIndex = index;
 
     }
     notifyListeners();
@@ -70,10 +69,9 @@ class DashboardViewModel extends ChangeNotifier {
       barcodeRes = "Failed to Scan QR Code";
     }
 
-      print("scanres${barcodeRes}");
       Uri upiUri = Uri.parse(barcodeRes!);
-      Upiid = upiUri.queryParameters['pa'] ?? "Parameter not found";
-      TitleName = upiUri.queryParameters['pn'] ?? "Parameter not found";
+      upiId = upiUri.queryParameters['pa'] ?? "Parameter not found";
+      titleName = upiUri.queryParameters['pn'] ?? "Parameter not found";
       scanres = barcodeRes;
 
       // Navigator.push(context, MaterialPageRoute(builder:(context) => AmountPay(title: TitleName.toString(), upiId: Upiid.toString()),));
