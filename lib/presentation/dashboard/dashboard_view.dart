@@ -38,7 +38,7 @@ class _DashboardState extends State<Dashboard> {
     return  SafeArea(
       child: Scaffold(
         floatingActionButton: FloatingActionButton(
-          backgroundColor: AppColor.purple,
+          backgroundColor: AppColor.cardcolor,
           shape: const CircleBorder(),
           onPressed: (){
             showDialog(context: context, builder: (context) {
@@ -144,7 +144,7 @@ class _DashboardState extends State<Dashboard> {
             child: Align(
               alignment: Alignment.topLeft,
               child: Text(
-                "\$ 70,000",
+                "Master Card",
                 style: TextStyle(
                   color: AppColor.white,
                   fontSize: 24,
@@ -153,37 +153,95 @@ class _DashboardState extends State<Dashboard> {
                 ),
             ),
           ),
-           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
-              const Text(
-                "****-***-****-***-3001",
-                style: TextStyle(
-                  color: AppColor.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.w200
-                ),
-                ),
-               SizedBox(
+              const Padding(
+                padding: EdgeInsets.only(left: 24.0),
+                child: Text(
+                  "Total Balance",
+                  style: TextStyle(
+                    color: AppColor.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w200
+                  ),
+                  ),
+              ),
+              SizedBox(
                 width: 50,
-                 child: Image.asset(AssetsUtils.chip),
+                 child: Padding(
+                   padding: const EdgeInsets.only(right: 16.0),
+                   child: Image.asset(AssetsUtils.chip),
+                 ),
                ),
              ],
            ),
-             const Padding(
-               padding: EdgeInsets.only(right: 24.0),
-               child: Align(
-                alignment: Alignment.bottomRight,
-                 child: Text(
-                  "Rajesh",
+           const Row(
+             children: [
+              Padding(
+                padding: EdgeInsets.only(left: 24.0),
+                child: Text(
+                  "\$ 70,000",
                   style: TextStyle(
                     color: AppColor.white,
                     fontSize: 24,
-                    fontWeight: FontWeight.w600
+                    fontWeight: FontWeight.w200
                   ),
                   ),
-               ),
-             ),
+              ),
+               
+             ],
+           ),
+             const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+               children: [
+                Padding(
+                  padding: EdgeInsets.only(right: 130.0),
+                  child: Column(
+                      children: [
+                        Text(
+                        "Account Number",
+                        style: TextStyle(
+                          color: AppColor.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w200
+                        ),
+                        ),
+                        Text(
+                        "   ********3001",
+                        style: TextStyle(
+                          color: AppColor.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w300
+                        ),
+                        ),
+                      ],
+                    ),
+                ),
+                  Column(
+                    children: [
+                      Text(
+                      "Valid Date",
+                      style: TextStyle(
+                        color: AppColor.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w200
+                      ),
+                      ),
+                      Text(
+                      "09/25",
+                      style: TextStyle(
+                        color: AppColor.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w300
+                      ),
+                      ),
+                    ],
+                  ),
+               ],
+             )
+            
+             
         ],
       ),
     );
@@ -194,18 +252,48 @@ class _DashboardState extends State<Dashboard> {
       padding: const EdgeInsets.only(left: 24.0, top: 16.0),
       child: Align(
         alignment: Alignment.topLeft,
-        child: Text(
-          DateTime.now().hour >= 4 && DateTime.now().hour < 12? "Good Morning" 
-          : DateTime.now().hour >= 12 && DateTime.now().hour < 16? "Good Afternoon" 
-          : DateTime.now().hour >= 16 && DateTime.now().hour < 19? "Good Evening" 
-          : DateTime.now().hour >= 19 || DateTime.now().hour < 4? "Good Night": "",
-          style: const TextStyle(
-            color: AppColor.primary,
-            fontSize: 24,
-            fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.w600
-          ),
-          ),
+        child: Row(
+          children: [
+            _buildImage(context),
+            const SizedBox(width: 8.0,),
+            Column(
+              children: [
+                Text(
+                  DateTime.now().hour >= 4 && DateTime.now().hour < 12? "Good Morning" 
+                  : DateTime.now().hour >= 12 && DateTime.now().hour < 16? "Good Afternoon" 
+                  : DateTime.now().hour >= 16 && DateTime.now().hour < 19? "Good Evening" 
+                  : DateTime.now().hour >= 19 || DateTime.now().hour < 4? "Good Night": "",
+                  style: const TextStyle(
+                    color: AppColor.black,
+                    fontSize: 24,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w600
+                  ),
+                  ),
+                  Text( '${DateFormat('E').format(DateTime.now())}, '
+                    '${
+                      DateFormat('d').format(DateTime.now())}th ${DateFormat('MMM').format(DateTime.now())}',
+                  style: const TextStyle(
+                    color: AppColor.black,
+                    fontSize: 24,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w600
+                  ),
+                  ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildImage(BuildContext context){
+    return Center(
+      child: CircleAvatar(
+        maxRadius: 28,
+        minRadius: 16,
+        foregroundImage: AssetImage(AssetsUtils.myProfile),
       ),
     );
   }
