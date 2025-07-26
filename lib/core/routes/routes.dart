@@ -1,4 +1,3 @@
-import 'package:finsight/presentation/dashboard/dashboard.dart';
 import 'package:finsight/presentation/landing_page.dart';
 import 'package:finsight/presentation/login/login_view.dart';
 import 'package:finsight/presentation/register/register_view.dart';
@@ -13,8 +12,8 @@ class CommonRoutes {
         return MaterialPageRoute(builder: (context) => const RegisterUser());
       case '/login':
         return MaterialPageRoute(builder: (context) => const LoginView());
-      case '/dashboard':
-        return MaterialPageRoute(builder: (context) => const DashboardScreen());
+      // case '/dashboard':
+      //   return MaterialPageRoute(builder: (context) => const DashboardScreen());
       default:
         return MaterialPageRoute(builder: (context) => Scaffold(
           body: Center(

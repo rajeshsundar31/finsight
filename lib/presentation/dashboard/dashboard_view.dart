@@ -181,7 +181,7 @@ class _DashboardState extends State<Dashboard> {
               Padding(
                 padding: EdgeInsets.only(left: 24.0),
                 child: Text(
-                  "\$ 70,000",
+                  "\$ 1,20,0000",
                   style: TextStyle(
                     color: AppColor.white,
                     fontSize: 24,
@@ -267,7 +267,7 @@ class _DashboardState extends State<Dashboard> {
                     color: AppColor.black,
                     fontSize: 24,
                     fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w600
+                    fontWeight: FontWeight.w500
                   ),
                   ),
                   Text( '${DateFormat('E').format(DateTime.now())}, '
@@ -275,9 +275,9 @@ class _DashboardState extends State<Dashboard> {
                       DateFormat('d').format(DateTime.now())}th ${DateFormat('MMM').format(DateTime.now())}',
                   style: const TextStyle(
                     color: AppColor.black,
-                    fontSize: 24,
+                    fontSize: 16,
                     fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w600
+                    fontWeight: FontWeight.w400
                   ),
                   ),
               ],

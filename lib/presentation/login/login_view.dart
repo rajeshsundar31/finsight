@@ -22,10 +22,9 @@ class _LoginViewState extends State<LoginView> {
   String? password;
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-      body: _buildBody(context),
-    ));
+    return Scaffold(
+          body: _buildBody(context),
+        );
   }
 
   Widget _buildEmail(BuildContext context) {
