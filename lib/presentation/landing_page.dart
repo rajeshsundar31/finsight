@@ -3,7 +3,6 @@ import 'package:finsight/core/constants/app_colors.dart';
 import 'package:finsight/core/constants/app_strings.dart';
 import 'package:finsight/core/utils/app_size.dart';
 import 'package:finsight/core/utils/asset_utils.dart';
-import 'package:finsight/presentation/dashboard/dashboard.dart';
 import 'package:finsight/presentation/dashboard/dashboard_view.dart';
 import 'package:flutter/material.dart';
 
