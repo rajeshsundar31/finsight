@@ -154,19 +154,8 @@ class _DashboardState extends State<Dashboard> {
             ),
           ),
             Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
              children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 24.0),
-                child: Text(
-                  "Total Balance",
-                  style: TextStyle(
-                    color: AppColor.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w200
-                  ),
-                  ),
-              ),
               SizedBox(
                 width: 50,
                  child: Padding(
@@ -174,22 +163,6 @@ class _DashboardState extends State<Dashboard> {
                    child: Image.asset(AssetsUtils.chip),
                  ),
                ),
-             ],
-           ),
-           const Row(
-             children: [
-              Padding(
-                padding: EdgeInsets.only(left: 24.0),
-                child: Text(
-                  "\$ 1,20,0000",
-                  style: TextStyle(
-                    color: AppColor.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w200
-                  ),
-                  ),
-              ),
-               
              ],
            ),
              const Row(

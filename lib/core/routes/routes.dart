@@ -16,7 +16,7 @@ class CommonRoutes {
         return MaterialPageRoute(builder: (context) => const LoginView());
       case '/scancode':
         return MaterialPageRoute(builder: (context) => const ScanCode());
-      case '/navbar':
+      case '/dashboard':
         return MaterialPageRoute(builder: (context) => const BottomNavigation());
       default:
         return MaterialPageRoute(builder: (context) => Scaffold(
