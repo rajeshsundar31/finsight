@@ -60,24 +60,5 @@ class DashboardViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Future scanQR() async {
-  //   try {
-  //     barcodeRes = await FlutterBarcodeScanner.scanBarcode(
-  //         '#ff6666', 'cancel', true, ScanMode.QR);
-  //   } on PlatformException {
-  //     barcodeRes = "Failed to Scan QR Code";
-  //   }
-
-  //     Uri upiUri = Uri.parse(barcodeRes!);
-  //     upiId = upiUri.queryParameters['pa'] ?? "Parameter not found";
-  //     titleName = upiUri.queryParameters['pn'] ?? "Parameter not found";
-  //     scanres = barcodeRes;
-
-  //     // Navigator.push(context, MaterialPageRoute(builder:(context) => AmountPay(title: TitleName.toString(), upiId: Upiid.toString()),));
-
-  //     notifyListeners();
-  // }
-
-
  
 }

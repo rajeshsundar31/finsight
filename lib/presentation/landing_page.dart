@@ -3,7 +3,6 @@ import 'package:finsight/core/constants/app_colors.dart';
 import 'package:finsight/core/constants/app_strings.dart';
 import 'package:finsight/core/utils/app_size.dart';
 import 'package:finsight/core/utils/asset_utils.dart';
-import 'package:finsight/presentation/dashboard/dashboard_view.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
@@ -33,7 +32,7 @@ class _LandingPageState extends State<LandingPage> {
           CustomButton(
             color: AppColor.primary,
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const Dashboard()));
+              Navigator.pushNamed(context, '/login');
             },
             width: displayWidth(context)/1.2,
             text: AppStrings.continueBtn,
