@@ -32,7 +32,7 @@ class _LandingPageState extends State<LandingPage> {
           CustomButton(
             color: AppColor.primary,
             onPressed: (){
-              Navigator.pushNamed(context, '/login');
+              Navigator.pushNamed(context, '/dashboard');
             },
             width: displayWidth(context)/1.2,
             text: AppStrings.continueBtn,
